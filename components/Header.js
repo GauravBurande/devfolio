@@ -4,16 +4,11 @@ import Image from "next/image";
 import logo from "@/app/icon.svg";
 import config from "@/config";
 import { ModeToggle } from "./ThemeToggle";
-import MobileNavSheet from "./MobileNavSheet";
 
 const links = [
   {
     href: "/#pricing",
     label: "Pricing",
-  },
-  {
-    href: "/#testimonials",
-    label: "Reviews",
   },
   {
     href: "/#faq",
@@ -50,7 +45,7 @@ const Header = () => {
             </Link>
           </div>
           {/* Your links on large screens */}
-          <div className="hidden sm:flex sm:justify-center sm:gap-6 sm:items-center">
+          <div className="flex justify-center gap-6 items-center">
             {links.map((link) => (
               <Link
                 href={link.href}
@@ -66,9 +61,6 @@ const Header = () => {
 
         <div className="flex items-center gap-2">
           <ModeToggle />
-          <div className="sm:hidden">
-            <MobileNavSheet links={links} />
-          </div>
         </div>
       </nav>
     </header>

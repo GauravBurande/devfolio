@@ -41,9 +41,9 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                {config.mailgun.supportEmail && (
+                {config.supportEmail && (
                   <a
-                    href={`mailto:${config.mailgun.supportEmail}`}
+                    href={`mailto:${config.supportEmail}`}
                     target="_blank"
                     className="transition-colors hover:text-foreground text-foreground/70"
                     aria-label="Contact Support"

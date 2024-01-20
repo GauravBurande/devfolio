@@ -87,7 +87,7 @@ const Pricing = () => {
                   <ButtonCheckout priceId={plan.priceId} />
 
                   <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                    One-time payment. No subscription.
+                    It&apos;s free! No need to click the above button!
                   </p>
                 </div>
               </div>

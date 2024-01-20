@@ -1,5 +1,4 @@
 import { DM_Sans as FontSans } from "next/font/google";
-import PlausibleProvider from "next-plausible";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
@@ -27,11 +26,6 @@ export const metadata = getSEOTags();
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={fontSans.className}>
-      {config.domainName && (
-        <head>
-          <PlausibleProvider domain={config.domainName} />
-        </head>
-      )}
       <body>
         {/* ClientLayout contains all the client wrappers (toast messages, tooltips, etc.) */}
         <Toaster />

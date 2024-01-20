@@ -1,39 +1,24 @@
-import ButtonLead from "./ButtonLead";
-// import ButtonSignin from "./ButtonSignin";
+import ButtonSignin from "./ButtonSignin";
 import { Manrope } from "next/font/google"
-// import TestimonialsAvatars from "./TestimonialsAvatars";
-// import config from "@/config";
 
 const font = Manrope({
   subsets: ["greek"],
 });
 
-// cta copies:
-// "Get noticed on Google in less than 48 hours with our automatic indexing tool."
-// "See your new pages indexed quickly and keep track of your status effortlessly."
-// "Struggling to be seen? Let us help you get more traffic with speedy indexing."
-// "Boost your Google presence with our fast and easy indexing solution."
-// "No more waiting – our indexing helper ensures your pages get Google's attention lightning fast."
-
 const Hero = () => {
   return (
     <section className="relative">
-      <div className="absolute inset-0 bg-[url(/rain.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      <div className="absolute inset-0 bg-[url(/graphic.webp)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
       <div className="flex flex-col items-center justify-center space-y-6 lg:space-y-8 pt-10 md:pt-20 relative  md:max-w-2xl lg:max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center space-y-6">
           <div className="flex flex-row items-center justify-center space-x-1">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-foreground/70 w-3">
-              <path fillRule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clipRule="evenodd"></path>
-            </svg>
-            <span className="uppercase text-foreground/70 text-xs md:text-base">speed + growth</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-foreground/70 w-3">
-              <path fillRule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clipRule="evenodd"></path>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-minimize"><path d="M8 3v3a2 2 0 0 1-2 2H3" /><path d="M21 8h-3a2 2 0 0 1-2-2V3" /><path d="M3 16h3a2 2 0 0 1 2 2v3" /><path d="M16 21v-3a2 2 0 0 1 2-2h3" /></svg>
+            <span className="uppercase font-semibold text-foreground/90 text-xs md:text-base">minimalistic + beautiful</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M19 17v4" /><path d="M3 5h4" /><path d="M17 19h4" /></svg>
           </div>
           <div className="relative flex flex-row items-center text-center justify-center space-x-2">
             <h1 className={`font-bold text-5xl leading-tight lg:leading-normal sm:text-6xl md:text-7xl px-5 md:px-7 lg:px-10 ${font.className}`}>
-              Get your site pages
-              on google faster than others
+              Simply showcase your work, skills and yourserlf diffrently
               <span className="inline-block px-1">
                 <svg
                   className="text-foreground h-8 sm:h-10 md:w-14 md:h-14" viewBox="0 0 32 65" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -45,17 +30,15 @@ const Hero = () => {
           </div>
         </div>
         <h2 className="flex flex-col text-xl md:text-2xl px-5 items-center text-center justify-center space-y-2 lg:pb-4">
-          <span className="text-foreground/60">Struggling to be seen?
-            <span className="text-foreground"> Let us help you get more traffic with speedy indexing.</span>
+          <span className="text-foreground/60">Also with Dark theme! {" "}
+            <span className="text-foreground">Everyone likes dark theme, don&apos;t you?</span>
           </span>
-          <span className="">No more waiting – our indexing helper ensures your pages get Google&apos;s attention lightning fast.</span>
         </h2>
         <div className="flex flex-col w-full h-full items-center justify-center space-y-6">
-          {/* <ButtonSignin /> */}
-          <ButtonLead />
-          {/* <p>Get indexed in minimum 48 hours.</p> */}
+          <ButtonSignin />
+          <p>Get your cool looking portfolio page!</p>
         </div>
-        <div className="flex items-center gap-6 py-10">
+        {/* <div className="flex items-center gap-6 py-10">
           <span>As seen on</span>
           <span>
             <svg className="w-28 md:w-32 fill-base-content saturate-0 opacity-80 hover:opacity-100 hover:saturate-100 duration-100  cursor-pointer" viewBox="0 0 935 219" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_176_3)"><path d="M218.991 109.5C218.991 169.999 170.037 219 109.596 219C49.1552 219 0.200928 169.999 0.200928 109.5C0.200928 49.0012 49.1552 0 109.596 0C170.037 0 218.991 49.0012 218.991 109.5Z" fill="#DA552F"></path><path d="M124.182 109.5H93.1866V76.65H124.182C133.207 76.65 140.591 84.0413 140.591 93.075C140.591 102.109 133.207 109.5 124.182 109.5ZM124.182 54.75H71.3076V164.25H93.1866V131.4H124.182C145.332 131.4 162.47 114.245 162.47 93.075C162.47 71.905 145.332 54.75 124.182 54.75Z" fill="white"></path><path d="M333.947 96.0863C333.947 90.0638 329.298 86.4137 323.281 86.4137H307.145V105.668H323.281C329.298 105.668 333.947 102.018 333.947 96.0863ZM291.921 146V73H325.469C341.057 73 349.536 83.4938 349.536 96.0863C349.536 108.588 340.966 119.081 325.469 119.081H307.236V146H291.921Z"></path><path d="M358.743 146V92.8013H372.418V99.8275C376.155 95.3563 382.537 91.5238 389.009 91.5238V104.846C388.006 104.664 386.821 104.573 385.271 104.573C380.713 104.573 374.697 107.128 372.509 110.504V146.091H358.743V146Z"></path><path d="M434.864 118.716C434.864 110.686 430.123 103.66 421.554 103.66C413.076 103.66 408.336 110.686 408.336 118.716C408.336 126.929 413.076 133.864 421.554 133.864C430.123 133.864 434.864 126.838 434.864 118.716ZM394.114 118.716C394.114 104.025 404.416 91.5238 421.463 91.5238C438.693 91.5238 448.994 104.025 448.994 118.716C448.994 133.408 438.693 146 421.463 146C404.416 146 394.114 133.408 394.114 118.716Z"></path><path d="M494.94 127.932V109.591C492.661 106.124 487.738 103.66 483.271 103.66C475.431 103.66 470.053 109.774 470.053 118.716C470.053 127.75 475.431 133.864 483.271 133.864C487.738 133.864 492.661 131.4 494.94 127.932ZM494.94 146V138.061C490.838 143.263 485.277 146 478.895 146C465.859 146 455.922 136.145 455.922 118.716C455.922 101.835 465.677 91.5238 478.895 91.5238C485.003 91.5238 490.838 94.0788 494.94 99.4625V73H508.705V146H494.94Z"></path><path d="M557.204 146V138.152C553.648 141.985 547.449 146 538.971 146C527.576 146 522.197 139.795 522.197 129.666V92.8012H535.872V124.282C535.872 131.491 539.609 133.864 545.444 133.864C550.731 133.864 554.925 130.944 557.295 127.932V92.8012H570.969V146H557.204Z"></path><path d="M581.088 118.716C581.088 102.839 592.666 91.5238 608.619 91.5238C619.285 91.5238 625.667 96.1775 629.131 100.923L620.197 109.318C617.736 105.668 613.998 103.751 609.258 103.751C600.962 103.751 595.219 109.774 595.219 118.808C595.219 127.841 601.053 133.955 609.258 133.955C613.998 133.955 617.736 131.765 620.197 128.298L629.131 136.693C625.667 141.438 619.285 146.183 608.619 146.183C592.666 146 581.088 134.685 581.088 118.716Z"></path><path d="M640.891 131.674V104.664H632.322V92.71H640.891V78.5663H654.565V92.8013H665.049V104.755H654.565V128.115C654.565 131.491 656.297 133.955 659.306 133.955C661.311 133.955 663.317 133.225 664.046 132.313L666.964 142.715C664.958 144.54 661.311 146.091 655.568 146.091C645.905 146 640.891 141.073 640.891 131.674Z"></path><path d="M752.383 146V114.519H718.562V146H703.337V73H718.562V101.196H752.383V73H767.789V146H752.383Z"></path><path d="M816.561 146V138.152C813.006 141.985 806.807 146 798.329 146C786.933 146 781.555 139.795 781.555 129.666V92.8012H795.229V124.282C795.229 131.491 798.967 133.864 804.801 133.864C810.089 133.864 814.282 130.944 816.652 127.932V92.8012H830.327V146H816.561Z"></path><path d="M878.734 146V113.333C878.734 106.124 874.996 103.66 869.162 103.66C863.783 103.66 859.681 106.671 857.311 109.683V146H843.636V92.8013H857.311V99.4625C860.684 95.63 867.065 91.5238 875.452 91.5238C886.938 91.5238 892.408 98.0025 892.408 108.04V146H878.734Z"></path><path d="M908.817 131.674V104.664H900.248V92.71H908.817V78.5663H922.492V92.8013H932.975V104.755H922.492V128.115C922.492 131.491 924.224 133.955 927.232 133.955C929.238 133.955 931.243 133.225 931.973 132.313L934.89 142.715C932.884 144.54 929.238 146.091 923.494 146.091C913.831 146 908.817 141.073 908.817 131.674Z"></path></g><defs><clipPath id="clip0_176_3"><rect width="935" height="219" fill="white"></rect></clipPath></defs></svg>
@@ -66,7 +49,7 @@ const Hero = () => {
           <span>
             <svg className="w-8 md:w-9 fill-base-content saturate-0 contrast-50 opacity-80 hover:opacity-100 hover:saturate-100 hover:contrast-100 duration-100 cursor-pointer" viewBox="0 0 252 252" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_177_29)"><path d="M126 250.793C195.036 250.793 251 194.875 251 125.897C251 56.9181 195.036 1 126 1C56.9644 1 1 56.9181 1 125.897C1 194.875 56.9644 250.793 126 250.793Z" fill="black" stroke="white" strokeMiterlimit="10"></path><path d="M48.9999 53.5352L108.748 133.357L48.6233 198.256H62.1561L114.797 141.435L157.327 198.256H203.377L140.265 113.945L196.23 53.5352H182.697L134.219 105.865L95.0494 53.5352H48.9999ZM68.9004 63.4941H90.0554L183.474 188.297H162.319L68.9004 63.4941Z" fill="white"></path></g><defs><clipPath id="clip0_177_29"><rect width="252" height="252" fill="white"></rect></clipPath></defs></svg>
           </span>
-        </div>
+        </div> */}
       </div>
     </section>
   );
