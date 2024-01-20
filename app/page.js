@@ -12,6 +12,7 @@ export const metadata = getSEOTags({
 });
 
 export default function Home() {
+
   return (
     <>
       {renderSchemaTags()}

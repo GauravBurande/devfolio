@@ -4,22 +4,6 @@ import config from "@/config";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ThemeToggle";
 
-// You are an excellent lawyer.
-
-// I need your help to write a simple privacy policy for my website. Here is some context:
-// - Website: https://devfolio.vercel.app
-// - Name: DevFolio
-// - Description: A JavaScript code boilerplate to help entrepreneurs launch their startups faster
-// - User data collected: name, email and payment information
-// - Non-personal data collection: web cookies
-// - Purpose of Data Collection: Order processing
-// - Data sharing: we do not share the data with any other parties
-// - Children's Privacy: we do not collect any data from children
-// - Updates to the Privacy Policy: users will be updated by email
-// - Contact information: devfolio.vercel.app
-
-// Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
-
 export const metadata = getSEOTags({
   title: `Privacy Policy | ${config.appName}`,
   canonicalUrlRelative: "/privacy-policy",
@@ -58,20 +42,20 @@ const PrivacyPolicy = () => {
           className="leading-relaxed text-lg whitespace-pre-wrap"
           style={{ fontFamily: "var(--font-sans)" }}
         >
-          {`Effective Date: 1 February 2024
+          {`Effective Date: 21 Jan 2024
 
-At IndexerPro, we highly value and prioritize your privacy. This privacy policy outlines our practices regarding the collection, use, and sharing of information when you engage with our website or utilize our services.
+At DevFolio, we highly value and prioritize your privacy. This privacy policy outlines our practices regarding the collection, use, and sharing of information when you engage with our website or utilize our services.
 
 Information We Collect
 
-We gather the following information when you interact with our website or services:
-
-- Personal information you provide to us, such as your name and email address.
-- Information about your device and usage of our website or services, including your IP address, device type, and browsing history.
+We collect the following types of information:
+- Personal Information: Name and email provided by users for order processing, authentication, and portfolio building.
+- Payment Information: Collected for order processing (if applicable and needed).
+- Non-Personal Information: We may use web cookies for non-personal data collection.
 
 Payment Information
 
-We prioritize the security of your payment information. All payment details are securely processed by our trusted payment processor, Stripe. For details, please refer to Stripe's privacy policy: `}
+We prioritize the security of your payment information. All payment details will be securely processed by our trusted payment processor, Stripe. For details, please refer to Stripe's privacy policy: `}
           <a className="underline hover:text-foreground/70" href="https://stripe.com/privacy">privacy policy</a>{`.
 
 How We Use Your Information
@@ -81,6 +65,9 @@ We employ the information we collect to:
 - Provide, enhance, and maintain our website and services.
 - Communicate with you regarding your account and usage of our website or services.
 - Safeguard the security and integrity of our website and services.
+- Order Processing: To process orders and transactions.
+- User Authentication: To authenticate users accessing their portfolios.
+- Portfolio Building: To enable users to create and customize their one-page portfolios.
 
 Sharing Your Information
 
@@ -100,7 +87,7 @@ We may periodically update this privacy policy. Any changes will be posted on th
 Contact Us
 
 If you have inquiries or concerns regarding this privacy policy or the handling of your personal information, please reach out to us at `}
-          <a href="mailto:support@indexerpro.com" target="_blank" className="px-1 underline hover:text-foreground/70">support@indexerpro.com.</a>
+          <a href="mailto:gaurav@indexerpro.com" target="_blank" className="px-1 underline hover:text-foreground/70">gaurav@indexerpro.com.</a>
         </pre>
       </div>
     </main>

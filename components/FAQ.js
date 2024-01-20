@@ -5,36 +5,41 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-const faqList = [
+const faqs = [
   {
-    "question": "How do I index more than 200 pages per day?",
-    "answer": "To index more pages, upgrade to a plan with a higher limit. Whether you have multiple sites or a massive one, a higher quota speeds up your progress."
+    question: "What's in the free version for my awesome portfolio?",
+    answer: "In the free version, you get a killer portfolio page, export options like PDF and Word, a sleek portfolio editor, and access to our Discord community for vibes and feedback."
   },
   {
-    "question": "How can I add new sitemaps?",
-    "answer": "To add a new sitemap, go to the Manage Sites page and sync your site with GSC. It's an easy step to enhance your IndexerPro experience."
+    question: "Is free hosting on a cool subdomain available?",
+    answer: "Absolutely! With upcoming features, you might even get a chance to host on a rad subdomain for that extra cool factor."
   },
   {
-    "question": "How do I add new sites?",
-    "answer": "To add new websites, use the Manage Sites page. Just ensure your account has GSC access – it's a simple process."
+    question: "Will I know who's checking out my portfolio with analytics?",
+    answer: "Totally! The idea of adding analytics is on the table, and I'm totally open to it if that's what the community wants."
   },
   {
-    "question": "How does IndexerPro index pages?",
-    "answer": "IndexerPro uses the official Google Indexing API to swiftly index your pages. No secrets, just a reliable method designed for this purpose."
+    question: "Can I customize my portfolio's appearance?",
+    answer: "For sure! Customization features are in the pipeline. I'm all ears for ideas on how you'd like to make your portfolio stand out."
   },
   {
-    "question": "How long does it take to index pages?",
-    "answer": "Wondering how long it takes? IndexerPro accelerates the process. While not instant, it's designed to make your anxious wait shorter."
+    question: "Can I get a custom domain for my portfolio?",
+    answer: "Absolutely! If there's a demand for custom domains, it's definitely something I'm considering for the future. Let me know if you're into it!"
   },
   {
-    "question": "When will indexed pages appear in GSC?",
-    "answer": "After submitting pages for indexing, be patient. Results won't instantly appear on GSC's indexing report due to a slight delay in updating."
+    question: "Are there any plans for unique templates?",
+    answer: "Absolutely! If users are vibing with the idea of unique templates, that's something I'm down to explore and create. Let me know your thoughts!"
   },
   {
-    "question": "Why do you need Owner permissions?",
-    "answer": "We know requesting Owner permissions may seem intrusive. Rest assured, it helps integrate your unique IndexerPro service account with Google Search Console for a seamless experience."
+    question: "How can I show support for these potential features?",
+    answer: "Just hop on our Discord community and share your thoughts! Your feedback will guide the direction of future features and improvements."
   },
-]
+  {
+    question: "Can I upgrade to premium whenever I want?",
+    answer: "Totally! Premium features will only be built if users are excited about them. If there's demand, I'll make it happen. Your call!"
+  }
+];
+
 
 const Item = ({ item }) => {
 
@@ -60,7 +65,7 @@ const FAQ = () => {
         </div>
 
         <Accordion type="single" collapsible className="w-full">
-          {faqList.map((item, i) => (
+          {faqs.map((item, i) => (
             <Item key={i} item={item} />
           ))}
         </Accordion>
