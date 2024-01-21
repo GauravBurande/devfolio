@@ -103,7 +103,7 @@ const PortFolio = ({ params }) => {
 
     useEffect(() => {
         const portfolio = window.localStorage.getItem('portfolio');
-        setUser(JSON.parse(portfolio))
+        if(portfolio) {setUser(JSON.parse(portfolio))}
     }, [params.username])
 
     try {
