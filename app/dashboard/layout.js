@@ -35,9 +35,9 @@ const sidebarNavItems = [
 export default async function LayoutPrivate({ children }) {
   const session = await getServerSession(authOptions);
 
-  if (!session) {
-    redirect(config.auth.loginUrl);
-  }
+ // if (!session) {
+   // redirect(config.auth.loginUrl);
+//  }
 
   return <>
     <div className="space-y-6 p-10 pb-16">
