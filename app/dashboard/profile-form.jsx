@@ -131,21 +131,19 @@ const complexValue = {
     ]
 }
 // This can come from database if user has saved their info after upadating exsiting values.
-const portfolio = JSON.parse(window.localStorage.getItem('portfolio'))
-const withoutComplexValues = { name: portfolio.name, username: portfolio.username, helloText: portfolio.helloText, headline: portfolio.headline, about: portfolio.about }
-const withComplexValues = { work: portfolio.work, projects: portfolio.projects, skills: portfolio.skills }
+// let portfolio = window.localStorage.getItem('portfolio')
+// if (portfolio) {
+//     portfolio = JSON.parse(portfolio);
+// // }
+// const withoutComplexValues = { name: portfolio.name, username: portfolio.username, helloText: portfolio.helloText, headline: portfolio.headline, about: portfolio.about }
+// const withComplexValues = { work: portfolio.work, projects: portfolio.projects, skills: portfolio.skills }
 
-const defaultValues = portfolio ?
-    {
-        ...withoutComplexValues,
-        complexStructure: JSON.stringify(withComplexValues, null, 2),
-    }
-    : {
-        helloText: "👋 Hey there, I'm John Doe",
-        headline: "A Full Stack Engineer and Opensource Contributor",
-        about: "I own a computer.",
-        complexStructure: JSON.stringify(complexValue, null, 2),
-    }
+const defaultValues = {
+    helloText: "👋 Hey there, I'm John Doe",
+    headline: "A Full Stack Engineer and Opensource Contributor",
+    about: "I own a computer.",
+    complexStructure: JSON.stringify(complexValue, null, 2),
+}
 
 export function ProfileForm() {
     const form = useForm({
