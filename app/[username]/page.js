@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card"
 
 const user = {
+    "usernames": "johndoe",
     "name": "John Doe",
     "helloText": `👋 Hey there, I'm John Doe`,
     "headline": "A Full Stack Engineer and Opensource Contributor",
@@ -100,7 +101,7 @@ addLink('work', '#work');
 
 const portfolio = ({ params }) => {
 
-    console.log("slug: " + params.user);
+    console.log("slug: " + params.username);
     return (
         <main className='pb-20'>
             <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

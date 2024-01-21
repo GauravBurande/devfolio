@@ -41,7 +41,7 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                {/* {config.supportEmail && (
+                {config.supportEmail && (
                   <a
                     href={`mailto:${config.supportEmail}`}
                     target="_blank"
@@ -50,13 +50,10 @@ const Footer = () => {
                   >
                     Support
                   </a>
-                )} */}
+                )}
                 <Link href="/#pricing" className="transition-colors hover:text-foreground text-foreground/70">
                   Pricing
                 </Link>
-                {/* <Link href="/blog" className="transition-colors hover:text-foreground text-foreground/70">
-                  Blog
-                </Link> */}
                 <a href="https://discord.gg/4tZvwVeM" target="_blank" className="transition-colors hover:text-foreground text-foreground/70">
                   Join Discord Community
                 </a>

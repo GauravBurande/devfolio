@@ -10,7 +10,7 @@ const ButtonSignout = () => {
     }
     return (
         <Button onClick={handleSignOut}>
-            signout
+            Signout
         </Button>
     )
 }

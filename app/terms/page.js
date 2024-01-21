@@ -87,7 +87,7 @@ We reserve the right to modify or replace these Terms at any time. Material chan
 
 Contact Us
 If you have any questions about these Terms, contact us at `}
-          <a href="mailto:gaurav@indexerpro.com" target="_blank" className="px-1 underline hover:text-foreground/70">gaurav@indexerpro.com.</a>
+          <a href="mailto:burandegaurav8899@gmail.com" target="_blank" className="px-1 underline hover:text-foreground/70">burandegaurav8899@gmail.com.</a>
         </pre>
       </div>
     </main>

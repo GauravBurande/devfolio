@@ -4,8 +4,8 @@ const config = {
   appDescription:
     "Beautiful and minimalisic simple one page portfolio for developers",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "devfolio.vercel.app",
-  supportEmail: "gaurav@indexerpro.com",
+  domainName: "devfolio-v1.vercel.app",
+  supportEmail: "burandegaurav8899@gmail.com",
   stripe: {
     // Create multiple plans in your Stripe dashboard, then add them here. You can add as many plans as you want, just make sure to add the priceId
     plans: [
@@ -26,7 +26,6 @@ const config = {
         featureTitle: "What's included",
         features: [
           { name: "beautiful looking page for your portfolio", },
-          { name: "Export it in various formats (PDF, Word, etc.)." },
           { name: "Portfolio Editor" },
           { name: "Discord Community" },
         ],
@@ -47,6 +46,7 @@ const config = {
           {
             name: "Free hosting on subdomain",
           },
+          { name: "Export it in various formats (PDF, Word, etc.)." },
           { name: "Analytics" },
           { name: "Appearance Customization" },
           { name: "Custom Domain" },

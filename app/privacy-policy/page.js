@@ -87,7 +87,7 @@ We may periodically update this privacy policy. Any changes will be posted on th
 Contact Us
 
 If you have inquiries or concerns regarding this privacy policy or the handling of your personal information, please reach out to us at `}
-          <a href="mailto:gaurav@indexerpro.com" target="_blank" className="px-1 underline hover:text-foreground/70">gaurav@indexerpro.com.</a>
+          <a href="mailto:burandegaurav8899@gmail.com" target="_blank" className="px-1 underline hover:text-foreground/70">burandegaurav8899@gmail.com.</a>
         </pre>
       </div>
     </main>

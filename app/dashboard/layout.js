@@ -23,13 +23,13 @@ const sidebarNavItems = [
     href: "/dashboard",
   },
   {
+    title: "Preview",
+    href: "/dashboard/preview",
+  },
+  {
     title: "Get Jobs",
     href: "/dashboard/jobs",
   },
-  // {
-  //   title: "Appearance",
-  //   href: "/dashboard/appearance",
-  // },
 ]
 
 export default async function LayoutPrivate({ children }) {
@@ -43,9 +43,9 @@ export default async function LayoutPrivate({ children }) {
     <div className="hidden space-y-6 p-10 pb-16 md:block">
       <div className="flex items-center justify-between space-y-0.5">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
           <p className="text-muted-foreground">
-            Manage your account settings.
+            Manage your account
           </p>
         </div>
         <div className="w-fit px-4 mt-10 flex gap-5 items-center">

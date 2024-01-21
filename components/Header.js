@@ -14,6 +14,10 @@ const links = [
     href: "/#faq",
     label: "Faq",
   },
+  {
+    href: "/johndoe",
+    label: "Demo",
+  },
 ];
 
 // const cta = <ButtonSignin />;
