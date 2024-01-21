@@ -63,89 +63,94 @@ const profileFormSchema = z.object({
 })
 
 
-const complexValue = {
-    "work": [
-        {
-            "position": "Front-end Developer",
-            "company": "Tech Innovations Inc.",
-            "startDate": "January 2020",
-            "endDate": "Present",
-            "responsibilities": ["Developing responsive web applications", "Collaborating with cross-functional teams"]
-        },
-        {
-            "position": "Intern",
-            "company": "Digital Solutions Ltd.",
-            "startDate": "May 2019",
-            "endDate": "December 2019",
-            "responsibilities": ["Assisting in website development", "Learning and implementing best practices"]
-        },
-    ],
-    "projects": [
-        {
-            "title": "E-commerce Platform",
-            "role": "developer",
-            "description": "Built a responsive e-commerce platform with user authentication and product management.",
-            "stack": ["TailwindCSS", "NextJS", "MongoDB"],
-            "url": "https://example.com/ecommerce"
-        },
-        {
-            "title": "Portfolio Website",
-            "role": "designer",
-            "description": "Designed and developed a personal portfolio website to showcase skills and projects.",
-            "stack": ["HTML", "CSS", "JavaScript"],
-            "url": "https://example.com/portfolio"
-        },
-        {
-            "title": "Blog Platform",
-            "role": "maintainer",
-            "description": "Created a dynamic blog platform with user accounts and commenting functionality.",
-            "stack": ["React", "Node.js", "Express", "MongoDB"],
-            "url": "https://example.com/blog"
-        },
-        {
-            "title": "Social Media Dashboard",
-            "role": "developer",
-            "description": "Developed a social media dashboard with real-time updates and interactive data visualizations.",
-            "stack": ["Vue.js", "Firebase", "Chart.js"],
-            "url": "https://example.com/social-dashboard"
-        },
-    ],
-    "skills": ["MongoDB", "TailwindCSS", "JavaScript", "React", "Node.js", "NextJS", "Git"],
-    "socials": [
-        {
-            name: "email",
-            value: "mailto:john.doe@example.com",
-        },
-        {
-            name: "linkedin",
-            value: "https://www.linkedin.com/in/johndoe",
-        },
-        {
-            name: "github",
-            value: "https://github.com/johndoe",
-        },
-        {
-            name: "twitter",
-            value: "https://twitter.com/johndoe",
-        },
-    ]
-}
-// This can come from database if user has saved their info after upadating exsiting values.
-// let portfolio = window.localStorage.getItem('portfolio')
-// if (portfolio) {
-//     portfolio = JSON.parse(portfolio);
-// // }
-// const withoutComplexValues = { name: portfolio.name, username: portfolio.username, helloText: portfolio.helloText, headline: portfolio.headline, about: portfolio.about }
-// const withComplexValues = { work: portfolio.work, projects: portfolio.projects, skills: portfolio.skills }
-
-const defaultValues = {
-    helloText: "👋 Hey there, I'm John Doe",
-    headline: "A Full Stack Engineer and Opensource Contributor",
-    about: "I own a computer.",
-    complexStructure: JSON.stringify(complexValue, null, 2),
-}
-
 export function ProfileForm() {
+    const complexValue = {
+        "work": [
+            {
+                "position": "Front-end Developer",
+                "company": "Tech Innovations Inc.",
+                "startDate": "January 2020",
+                "endDate": "Present",
+                "responsibilities": ["Developing responsive web applications", "Collaborating with cross-functional teams"]
+            },
+            {
+                "position": "Intern",
+                "company": "Digital Solutions Ltd.",
+                "startDate": "May 2019",
+                "endDate": "December 2019",
+                "responsibilities": ["Assisting in website development", "Learning and implementing best practices"]
+            },
+        ],
+        "projects": [
+            {
+                "title": "E-commerce Platform",
+                "role": "developer",
+                "description": "Built a responsive e-commerce platform with user authentication and product management.",
+                "stack": ["TailwindCSS", "NextJS", "MongoDB"],
+                "url": "https://example.com/ecommerce"
+            },
+            {
+                "title": "Portfolio Website",
+                "role": "designer",
+                "description": "Designed and developed a personal portfolio website to showcase skills and projects.",
+                "stack": ["HTML", "CSS", "JavaScript"],
+                "url": "https://example.com/portfolio"
+            },
+            {
+                "title": "Blog Platform",
+                "role": "maintainer",
+                "description": "Created a dynamic blog platform with user accounts and commenting functionality.",
+                "stack": ["React", "Node.js", "Express", "MongoDB"],
+                "url": "https://example.com/blog"
+            },
+            {
+                "title": "Social Media Dashboard",
+                "role": "developer",
+                "description": "Developed a social media dashboard with real-time updates and interactive data visualizations.",
+                "stack": ["Vue.js", "Firebase", "Chart.js"],
+                "url": "https://example.com/social-dashboard"
+            },
+        ],
+        "skills": ["MongoDB", "TailwindCSS", "JavaScript", "React", "Node.js", "NextJS", "Git"],
+        "socials": [
+            {
+                name: "email",
+                value: "mailto:john.doe@example.com",
+            },
+            {
+                name: "linkedin",
+                value: "https://www.linkedin.com/in/johndoe",
+            },
+            {
+                name: "github",
+                value: "https://github.com/johndoe",
+            },
+            {
+                name: "twitter",
+                value: "https://twitter.com/johndoe",
+            },
+        ]
+    }
+    // This can come from database if user has saved their info after upadating exsiting values.
+    const portfolio = JSON.parse(window.localStorage.getItem('portfolio'))
+    let withoutComplexValues;
+    let withComplexValues
+    if (portfolio) {
+        withoutComplexValues = { name: portfolio.name, username: portfolio.username, helloText: portfolio.helloText, headline: portfolio.headline, about: portfolio.about }
+        withComplexValues = { work: portfolio.work, projects: portfolio.projects, skills: portfolio.skills }
+    }
+
+    const defaultValues = portfolio ?
+        {
+            ...withoutComplexValues,
+            complexStructure: JSON.stringify(withComplexValues, null, 2),
+        }
+        : {
+            helloText: "👋 Hey there, I'm John Doe",
+            headline: "A Full Stack Engineer and Opensource Contributor",
+            about: "I own a computer.",
+            complexStructure: JSON.stringify(complexValue, null, 2),
+        }
     const form = useForm({
         resolver: zodResolver(profileFormSchema),
         defaultValues,
