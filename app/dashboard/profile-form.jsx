@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
-import apiClient from "@/libs/api"
+// import apiClient from "@/libs/api"
 import { useSession } from "next-auth/react"
 
 const profileFormSchema = z.object({
@@ -131,12 +131,21 @@ const complexValue = {
     ]
 }
 // This can come from database if user has saved their info after upadating exsiting values.
-const defaultValues = {
-    helloText: "👋 Hey there, I'm John Doe",
-    headline: "A Full Stack Engineer and Opensource Contributor",
-    about: "I own a computer.",
-    complexStructure: JSON.stringify(complexValue, null, 2),
-}
+const portfolio = JSON.parse(window.localStorage.getItem('portfolio'))
+const withoutComplexValues = { name: portfolio.name, username: portfolio.username, helloText: portfolio.helloText, headline: portfolio.headline, about: portfolio.about }
+const withComplexValues = { work: portfolio.work, projects: portfolio.projects, skills: portfolio.skills }
+
+const defaultValues = portfolio ?
+    {
+        ...withoutComplexValues,
+        complexStructure: JSON.stringify(withComplexValues, null, 2),
+    }
+    : {
+        helloText: "👋 Hey there, I'm John Doe",
+        headline: "A Full Stack Engineer and Opensource Contributor",
+        about: "I own a computer.",
+        complexStructure: JSON.stringify(complexValue, null, 2),
+    }
 
 export function ProfileForm() {
     const form = useForm({
@@ -146,27 +155,27 @@ export function ProfileForm() {
     })
 
 
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
     async function onSubmit(data) {
         try {
             const dataWithoutComplexstructure = { ...data }
-         delete dataWithoutComplexstructure.complexStructure;
+            delete dataWithoutComplexstructure.complexStructure;
             const complexStructure = JSON.parse(data.complexStructure)
-           const portfolio = { ...dataWithoutComplexstructure, ...complexStructure }
+            const portfolio = { ...dataWithoutComplexstructure, ...complexStructure }
 
-           // const email = session.user.email
-           // const updatedUser = await apiClient.post('/portfolio', { portfolio, email })
+            // const email = session.user.email
+            // const updatedUser = await apiClient.post('/portfolio', { portfolio, email })
             localStorage.setItem('portfolio', JSON.stringify(portfolio))
-          //  if (updatedUser) {
-                toast({
-                    title: "You submitted the following info:",
-                    description: (
-                        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                            <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-                        </pre>
-                    ),
-                })
-          //  }
+            //  if (updatedUser) {
+            toast({
+                title: "You submitted the following info:",
+                description: (
+                    <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+                        <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+                    </pre>
+                ),
+            })
+            //  }
         } catch (error) {
             console.error(error)
         }
