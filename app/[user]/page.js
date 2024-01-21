@@ -32,7 +32,7 @@ const user = {
             "startDate": "May 2019",
             "endDate": "December 2019",
             "responsibilities": ["Assisting in website development", "Learning and implementing best practices"]
-        }
+        },
     ],
     "projects": [
         {
@@ -142,11 +142,11 @@ const portfolio = ({ params }) => {
 
                     <div className="flex items-center gap-6">
                         {
-                            user.socials.map((social) => (
+                            user.socials ? user.socials.map((social) => (
                                 <Link className='hidden sm:block' href={social.value} key={social.name}>
                                     {socialIcons[social.name]}
                                 </Link>
-                            ))
+                            )) : ""
                         }
                         <ModeToggle />
                         <MobileNavSheet socials={user.socials} links={links} />
@@ -191,7 +191,7 @@ const portfolio = ({ params }) => {
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
                                         </Link>}
                                     </div>
-                                    <div className='flex items-center gap-4'>
+                                    <div className='flex flex-wrap items-center gap-4'>
                                         {project.stack.length > 0 && project.stack.map(tech => (
                                             <p className='bg-primary/30 border-2 px-3 py-0.5 text-xs rounded-md' key={tech}>
                                                 {tech}
@@ -210,7 +210,7 @@ const portfolio = ({ params }) => {
             </section>}
             {user.skills.length > 0 && <section id='skills' className='container mt-20'>
                 <h3 className='text-lg capitalize mb-5 font-semibold'>skills</h3>
-                <div className='flex gap-3 items-center'>
+                <div className='flex flex-wrap gap-3 items-center'>
                     {user.skills.map(skill => (
                         <p className='bg-primary/30 border-2 px-3 py-0.5 text-xs rounded-md' key={skill}>
                             {skill}
@@ -219,15 +219,15 @@ const portfolio = ({ params }) => {
                 </div>
             </section>}
             {user.work.length > 0 && <section id='work' className='container mt-20'>
-                <h3 className='text-lg capitalize mb-5 font-semibold'>work</h3>
-                <div className='flex gap-3 items-center'>
+                <h3 className='text-lg capitalize mb-10 font-semibold'>work</h3>
+                <div className='flex flex-wrap gap-3 items-center'>
                     {user.work.map(work => (
                         <Card key={work.company} className={cn("w-[380px]")}>
                             <CardHeader>
                                 <CardTitle>{work.position}</CardTitle>
                                 <CardDescription>{work.company}</CardDescription>
                             </CardHeader>
-                            <CardContent className="grid gap-4">
+                            <CardContent className="flex flex-wrap items-center gap-2">
                                 {work.responsibilities.map((responsibility, index) => (
                                     <div
                                         key={index}
