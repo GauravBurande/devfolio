@@ -9,10 +9,11 @@ import { Button } from "@/components/ui/button"
 // import { Label } from "@/components/ui/label"
 import { signIn } from "next-auth/react"
 import config from "@/config"
-
+import { useRouter } from 'next/navigation'
 export function UserAuthForm({ className, ...props }) {
     const [isLoading, setIsLoading] = React.useState(false)
 
+    const router = useRouter() 
     // async function onSubmit(event) {
     //     event.preventDefault()
     //     setIsLoading(true)
@@ -26,7 +27,8 @@ export function UserAuthForm({ className, ...props }) {
 
     const handleGoogleSignIn = async () => {
         setIsLoading(true)
-        await signIn("google", { callbackUrl });
+        // await signIn("google", { callbackUrl });
+        router.push('/dashboard')
         setIsLoading(false)
     };
 
