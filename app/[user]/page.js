@@ -3,7 +3,15 @@ import { ModeToggle } from '@/components/ThemeToggle';
 import { socialIcons } from '@/libs/constants';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+
+import { cn } from "@/lib/utils"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
 
 const user = {
     "name": "John Doe",
@@ -92,7 +100,7 @@ addLink('work', '#work');
 
 const portfolio = ({ params }) => {
 
-    // console.log("slug: " + params.user);
+    console.log("slug: " + params.user);
     return (
         <main className='pb-20'>
             <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -159,8 +167,8 @@ const portfolio = ({ params }) => {
                     </h3>
                 </div>
             </section>
-            <section className='container mt-10'>
-                <h3 className='text-lg mb-14 font-semibold'>Projects</h3>
+            {user.projects.length > 0 && <section id='projects' className='container mt-10'>
+                <h3 className='text-lg mb-14 capitalize font-semibold'>Projects</h3>
                 <div className='flex flex-col gap-16 items-start'>
                     {user.projects.map(project => (
                         <div key={project.title}>
@@ -177,14 +185,14 @@ const portfolio = ({ params }) => {
                                 </div>
                                 <div className='flex flex-col gap-1'>
                                     <div className='flex items-center gap-3'>
-                                        <p className='font-semibold text-foreground/75 text-lg'>{project.title}</p>
-                                        <p className='bg-primary/10 px-2 py-[2px] text-xs border-2 rounded-md'>{project.role}</p>
-                                        <Link className='hover:text-primary/80' href={project.url}>
+                                        {project.title && <p className='font-semibold text-foreground/75 text-lg'>{project.title}</p>}
+                                        {project.role && <p className='bg-primary/10 px-2 py-[2px] text-xs border-2 rounded-md'>{project.role}</p>}
+                                        {project.url && <Link className='hover:text-primary/80' href={project.url}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
-                                        </Link>
+                                        </Link>}
                                     </div>
                                     <div className='flex items-center gap-4'>
-                                        {project.stack.map(tech => (
+                                        {project.stack.length > 0 && project.stack.map(tech => (
                                             <p className='bg-primary/30 border-2 px-3 py-0.5 text-xs rounded-md' key={tech}>
                                                 {tech}
                                             </p>
@@ -193,13 +201,54 @@ const portfolio = ({ params }) => {
                                 </div>
                             </div>
 
-                            <div className=' mt-3'>
+                            {project.description && <div className=' mt-3'>
                                 {project.description}
-                            </div>
+                            </div>}
                         </div>
                     ))}
                 </div>
-            </section>
+            </section>}
+            {user.skills.length > 0 && <section id='skills' className='container mt-20'>
+                <h3 className='text-lg capitalize mb-5 font-semibold'>skills</h3>
+                <div className='flex gap-3 items-center'>
+                    {user.skills.map(skill => (
+                        <p className='bg-primary/30 border-2 px-3 py-0.5 text-xs rounded-md' key={skill}>
+                            {skill}
+                        </p>
+                    ))}
+                </div>
+            </section>}
+            {user.work.length > 0 && <section id='work' className='container mt-20'>
+                <h3 className='text-lg capitalize mb-5 font-semibold'>work</h3>
+                <div className='flex gap-3 items-center'>
+                    {user.work.map(work => (
+                        <Card key={work.company} className={cn("w-[380px]")}>
+                            <CardHeader>
+                                <CardTitle>{work.position}</CardTitle>
+                                <CardDescription>{work.company}</CardDescription>
+                            </CardHeader>
+                            <CardContent className="grid gap-4">
+                                {work.responsibilities.map((responsibility, index) => (
+                                    <div
+                                        key={index}
+                                        className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+                                    >
+                                        <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+                                        <div className="space-y-1">
+                                            <p className="text-sm font-medium leading-none">
+                                                {responsibility}
+                                            </p>
+                                            <p className="text-sm text-muted-foreground">
+                                                {work.startDate} - {work.endDate}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </section>}
         </main>
     )
 }
