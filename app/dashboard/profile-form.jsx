@@ -253,8 +253,7 @@ export function ProfileForm() {
                                 />
                             </FormControl>
                             <FormDescription>
-                                You can <span>@mention</span> other users and organizations to
-                                link to them.
+                                tell us a little bit about you
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
