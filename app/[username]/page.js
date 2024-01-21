@@ -109,7 +109,6 @@ const PortFolio = ({ params }) => {
     try {
         if (!params.username === "johndoe") {
 
-
             // const username = params.username
             // const res = await getUser(username)
             // user = JSON.parse(JSON.stringify(res))

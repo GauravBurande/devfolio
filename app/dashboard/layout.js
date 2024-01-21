@@ -24,7 +24,7 @@ const sidebarNavItems = [
   },
   {
     title: "Preview",
-    href: "/dashboard/preview",
+    href: "/profile",
   },
   {
     title: "Get Jobs",
