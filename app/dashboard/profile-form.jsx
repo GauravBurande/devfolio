@@ -150,14 +150,14 @@ export function ProfileForm() {
     async function onSubmit(data) {
         try {
             const dataWithoutComplexstructure = { ...data }
-            delete dataWithoutComplexstructure.complexStructure;
+         delete dataWithoutComplexstructure.complexStructure;
             const complexStructure = JSON.parse(data.complexStructure)
-            const portfolio = { ...dataWithoutComplexstructure, ...complexStructure }
+           const portfolio = { ...dataWithoutComplexstructure, ...complexStructure }
 
-            const email = session.user.email
-            const updatedUser = await apiClient.post('/portfolio', { portfolio, email })
+           // const email = session.user.email
+           // const updatedUser = await apiClient.post('/portfolio', { portfolio, email })
             localStorage.setItem('portfolio', JSON.stringify(portfolio))
-            if (updatedUser) {
+          //  if (updatedUser) {
                 toast({
                     title: "You submitted the following info:",
                     description: (
@@ -166,7 +166,7 @@ export function ProfileForm() {
                         </pre>
                     ),
                 })
-            }
+          //  }
         } catch (error) {
             console.error(error)
         }
