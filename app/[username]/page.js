@@ -1,3 +1,5 @@
+"use client";
+
 import MobileNavSheet from '@/components/MobileNavSheet';
 import { ModeToggle } from '@/components/ThemeToggle';
 import { socialIcons } from '@/libs/constants';
@@ -12,8 +14,10 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { useEffect, useState } from 'react';
+// import apiClient from '@/libs/api';
 
-const user = {
+const johndoe = {
     "usernames": "johndoe",
     "name": "John Doe",
     "helloText": `👋 Hey there, I'm John Doe`,
@@ -86,22 +90,47 @@ const user = {
     ]
 }
 
-const links = [];
+// async function getUser(username) {
+//     const res = await apiClient.get('/portfolio', { username });
+//     const user = await res.json()
 
-// Function to add a link to the 'links' array if the property exists in the 'user' object
-const addLink = (label, href) => {
-    if (user[label] && user[label].length > 0) {
-        links.push({ label, href });
+//     return user
+// }
+
+const PortFolio = ({ params }) => {
+
+    const [user, setUser] = useState(johndoe)
+
+    useEffect(() => {
+        const portfolio = window.localStorage.getItem('portfolio');
+        setUser(JSON.parse(portfolio))
+    }, [params.username])
+
+    try {
+        if (!params.username === "johndoe") {
+
+
+            // const username = params.username
+            // const res = await getUser(username)
+            // user = JSON.parse(JSON.stringify(res))
+            // console.log("portfolio: " + JSON.stringify(user))
+        }
+    } catch (error) {
+        console.error(error)
     }
-};
+    const links = [];
 
-addLink('skills', '#skills');
-addLink('projects', '#projects');
-addLink('work', '#work');
+    // Function to add a link to the 'links' array if the property exists in the 'user' object
+    const addLink = (label, href) => {
+        if (user[label] && user[label].length > 0) {
+            links.push({ label, href });
+        }
+    };
 
-const portfolio = ({ params }) => {
+    addLink('skills', '#skills');
+    addLink('projects', '#projects');
+    addLink('work', '#work');
 
-    console.log("slug: " + params.username);
     return (
         <main className='pb-20'>
             <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -254,4 +283,4 @@ const portfolio = ({ params }) => {
     )
 }
 
-export default portfolio
+export default PortFolio

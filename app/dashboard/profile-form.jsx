@@ -17,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
+import apiClient from "@/libs/api"
+import { useSession } from "next-auth/react"
 
 const profileFormSchema = z.object({
     username: z
@@ -61,12 +63,8 @@ const profileFormSchema = z.object({
 })
 
 
-// This can come from database if user has saved their info after upadating exsiting values.
-const defaultValues = {
-    helloText: "👋 Hey there, I'm John Doe",
-    headline: "A Full Stack Engineer and Opensource Contributor",
-    about: "I own a computer.",
-    complexStructure: `"work": [
+const complexValue = {
+    "work": [
         {
             "position": "Front-end Developer",
             "company": "Tech Innovations Inc.",
@@ -130,7 +128,14 @@ const defaultValues = {
             name: "twitter",
             value: "https://twitter.com/johndoe",
         },
-    ]`
+    ]
+}
+// This can come from database if user has saved their info after upadating exsiting values.
+const defaultValues = {
+    helloText: "👋 Hey there, I'm John Doe",
+    headline: "A Full Stack Engineer and Opensource Contributor",
+    about: "I own a computer.",
+    complexStructure: JSON.stringify(complexValue, null, 2),
 }
 
 export function ProfileForm() {
@@ -141,15 +146,30 @@ export function ProfileForm() {
     })
 
 
-    function onSubmit(data) {
-        toast({
-            title: "You submitted the following values:",
-            description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                    <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            ),
-        })
+    const { data: session } = useSession();
+    async function onSubmit(data) {
+        try {
+            const dataWithoutComplexstructure = { ...data }
+            delete dataWithoutComplexstructure.complexStructure;
+            const complexStructure = JSON.parse(data.complexStructure)
+            const portfolio = { ...dataWithoutComplexstructure, ...complexStructure }
+
+            const email = session.user.email
+            const updatedUser = await apiClient.post('/portfolio', { portfolio, email })
+            localStorage.setItem('portfolio', JSON.stringify(portfolio))
+            if (updatedUser) {
+                toast({
+                    title: "You submitted the following info:",
+                    description: (
+                        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+                            <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+                        </pre>
+                    ),
+                })
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (
