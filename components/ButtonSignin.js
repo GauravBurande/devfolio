@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"
@@ -18,7 +18,7 @@ const ButtonSignin = ({ text = "Get started" }) => {
     if (status === "authenticated") {
       router.push(config.auth.callbackUrl);
     } else {
-      signIn(undefined, { callbackUrl: config.auth.callbackUrl });
+      router.push(config.auth.loginUrl)
     }
   };
 
